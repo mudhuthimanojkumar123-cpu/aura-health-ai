@@ -56,7 +56,7 @@ function Home() {
                   <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-teal" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-teal" />
                 </span>
-                IEEE-inspired · Final-year research prototype
+                Clinical Research Prototype
               </div>
               <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
                 Federated Explainable<br />

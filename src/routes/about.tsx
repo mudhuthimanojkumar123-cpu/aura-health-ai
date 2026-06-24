@@ -43,7 +43,7 @@ function About() {
       <header className="mb-10">
         <span className="text-xs uppercase tracking-widest font-semibold text-teal">Research Overview</span>
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold">About the Project</h1>
-        <p className="mt-2 text-muted-foreground max-w-3xl">An IEEE-inspired final-year research prototype exploring privacy-preserving, explainable AI for lung cancer diagnosis across multiple hospital networks.</p>
+        <p className="mt-2 text-muted-foreground max-w-3xl">A research prototype exploring privacy-preserving, explainable AI for lung cancer diagnosis across multiple hospital networks.</p>
       </header>
 
       <section className="glass-card rounded-2xl p-8">
