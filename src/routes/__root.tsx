@@ -131,7 +131,6 @@ function Footer() {
   return (
     <footer className="border-t border-border/60 mt-20 py-8 text-center text-sm text-muted-foreground">
       <p>© 2026 FedLung AI · Federated Explainable Multi-Modal Deep Learning for Lung Cancer Diagnosis</p>
-      <p className="mt-1 text-xs">Academic prototype · IEEE-inspired final-year project</p>
     </footer>
   );
 }
