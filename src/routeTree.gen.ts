@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as HospitalsRouteImport } from './routes/hospitals'
+import { Route as FederatedRouteImport } from './routes/federated'
+import { Route as ExplainableRouteImport } from './routes/explainable'
+import { Route as DetectionRouteImport } from './routes/detection'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HospitalsRoute = HospitalsRouteImport.update({
+  id: '/hospitals',
+  path: '/hospitals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FederatedRoute = FederatedRouteImport.update({
+  id: '/federated',
+  path: '/federated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExplainableRoute = ExplainableRouteImport.update({
+  id: '/explainable',
+  path: '/explainable',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectionRoute = DetectionRouteImport.update({
+  id: '/detection',
+  path: '/detection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/architecture': typeof ArchitectureRoute
+  '/detection': typeof DetectionRoute
+  '/explainable': typeof ExplainableRoute
+  '/federated': typeof FederatedRoute
+  '/hospitals': typeof HospitalsRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/architecture': typeof ArchitectureRoute
+  '/detection': typeof DetectionRoute
+  '/explainable': typeof ExplainableRoute
+  '/federated': typeof FederatedRoute
+  '/hospitals': typeof HospitalsRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/architecture': typeof ArchitectureRoute
+  '/detection': typeof DetectionRoute
+  '/explainable': typeof ExplainableRoute
+  '/federated': typeof FederatedRoute
+  '/hospitals': typeof HospitalsRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/architecture'
+    | '/detection'
+    | '/explainable'
+    | '/federated'
+    | '/hospitals'
+    | '/report'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/architecture'
+    | '/detection'
+    | '/explainable'
+    | '/federated'
+    | '/hospitals'
+    | '/report'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/architecture'
+    | '/detection'
+    | '/explainable'
+    | '/federated'
+    | '/hospitals'
+    | '/report'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ArchitectureRoute: typeof ArchitectureRoute
+  DetectionRoute: typeof DetectionRoute
+  ExplainableRoute: typeof ExplainableRoute
+  FederatedRoute: typeof FederatedRoute
+  HospitalsRoute: typeof HospitalsRoute
+  ReportRoute: typeof ReportRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hospitals': {
+      id: '/hospitals'
+      path: '/hospitals'
+      fullPath: '/hospitals'
+      preLoaderRoute: typeof HospitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/federated': {
+      id: '/federated'
+      path: '/federated'
+      fullPath: '/federated'
+      preLoaderRoute: typeof FederatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explainable': {
+      id: '/explainable'
+      path: '/explainable'
+      fullPath: '/explainable'
+      preLoaderRoute: typeof ExplainableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detection': {
+      id: '/detection'
+      path: '/detection'
+      fullPath: '/detection'
+      preLoaderRoute: typeof DetectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +197,24 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ArchitectureRoute: ArchitectureRoute,
+  DetectionRoute: DetectionRoute,
+  ExplainableRoute: ExplainableRoute,
+  FederatedRoute: FederatedRoute,
+  HospitalsRoute: HospitalsRoute,
+  ReportRoute: ReportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
